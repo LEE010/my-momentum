@@ -1,2 +1,32 @@
 @charset "utf-8";
 @import "reset.css";
+
+.blind {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    clip: rect(0 0 0 0);
+    margin: -1px;
+    overflow: hidden;
+}
+
+.momentum {
+    background-color: #f9f9f9;
+    margin: auto;
+    padding-top: 200px;
+    
+    .momentum-title {
+        text-align: center;
+        font-size: 72px;
+        line-height: 90px;
+        font-weight: bold;
+    }
+
+    .momentum-clock {
+        text-align: center;
+        margin-top: 100px;
+        font-size: 52px;
+        line-height: 70px;
+        font-weight: bold;
+    }
+}
