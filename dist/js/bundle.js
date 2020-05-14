@@ -10261,8 +10261,7 @@ try {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _clock__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./clock */ "./src/js/clock.js");
 
-var momentumClock = document.querySelector('.momentum-clock');
-new _clock__WEBPACK_IMPORTED_MODULE_0__["default"](momentumClock);
+new _clock__WEBPACK_IMPORTED_MODULE_0__["default"]();
 
 /***/ }),
 
@@ -10275,34 +10274,28 @@ new _clock__WEBPACK_IMPORTED_MODULE_0__["default"](momentumClock);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+var timeElem = document.querySelector('.momentum-clock-time');
 
-var Clock = function Clock() {
-  _classCallCheck(this, Clock);
-
-  var timeElem = document.querySelector('.momentum-clock-time');
-
-  var parse24 = function parse24(time) {
-    return time > 9 ? time : "0".concat(time);
-  };
-
-  var getRealTime = function getRealTime() {
-    var date = new Date(),
-        hour = date.getHours(),
-        minute = date.getMinutes(),
-        second = date.getSeconds();
-    return "".concat(parse24(hour), ":").concat(parse24(minute), ":").concat(parse24(second));
-  };
-
-  var setClockTime = function setClockTime() {
-    return timeElem.textContent = getRealTime();
-  };
-
-  setClockTime();
-  setInterval(setClockTime, 1000);
+var parseTime = function parseTime(time) {
+  return time > 9 ? time : "0".concat(time);
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Clock);
+var getRealTime = function getRealTime() {
+  var date = new Date(),
+      hour = date.getHours(),
+      minute = date.getMinutes(),
+      second = date.getSeconds();
+  return "".concat(parseTime(hour), ":").concat(parseTime(minute), ":").concat(parseTime(second));
+};
+
+var setClockTime = function setClockTime() {
+  return timeElem.textContent = getRealTime();
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (function () {
+  setClockTime();
+  setInterval(setClockTime, 1000);
+});
 
 /***/ }),
 

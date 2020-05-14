@@ -1,20 +1,19 @@
-class Clock {
-    constructor() {
-        const timeElem = document.querySelector('.momentum-clock-time');
-        const parse24 = time => (time > 9) ? time : `0${time}`;
-        const getRealTime = () => {
-            const date = new Date(),
-                hour = date.getHours(),
-                minute = date.getMinutes(),
-                second = date.getSeconds();
+const timeElem = document.querySelector('.momentum-clock-time');
 
-            return `${ parse24(hour) }:${ parse24(minute) }:${ parse24(second) }`;
-        }
-        const setClockTime = () => timeElem.textContent = getRealTime();
+const parseTime = time => (time > 9) ? time : `0${time}`;
 
-        setClockTime();
-        setInterval(setClockTime, 1000);
-    }
-}
+const getRealTime = () => {
+    const date = new Date(),
+        hour = date.getHours(),
+        minute = date.getMinutes(),
+        second = date.getSeconds();
 
-export default Clock; 
+    return `${ parseTime(hour) }:${ parseTime(minute) }:${ parseTime(second) }`;
+};
+
+const setClockTime = () => timeElem.textContent = getRealTime();
+
+export default () => {
+    setClockTime();
+    setInterval(setClockTime, 1000);
+}; 
