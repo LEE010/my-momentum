@@ -1,4 +1,4 @@
-const timeElem = document.querySelector('.momentum-clock-time');
+const timeElem = document.querySelector('.clock-time');
 
 const parseTime = time => (time > 9) ? time : `0${time}`;
 

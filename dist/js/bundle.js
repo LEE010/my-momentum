@@ -10274,7 +10274,7 @@ new _clock__WEBPACK_IMPORTED_MODULE_0__["default"]();
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-var timeElem = document.querySelector('.momentum-clock-time');
+var timeElem = document.querySelector('.clock-time');
 
 var parseTime = function parseTime(time) {
   return time > 9 ? time : "0".concat(time);
