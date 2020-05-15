@@ -10260,7 +10260,10 @@ try {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _clock__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./clock */ "./src/js/clock.js");
+/* harmony import */ var _greeting__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./greeting */ "./src/js/greeting.js");
 
+
+new _greeting__WEBPACK_IMPORTED_MODULE_1__["default"]();
 new _clock__WEBPACK_IMPORTED_MODULE_0__["default"]();
 
 /***/ }),
@@ -10295,6 +10298,81 @@ var setClockTime = function setClockTime() {
 /* harmony default export */ __webpack_exports__["default"] = (function () {
   setClockTime();
   setInterval(setClockTime, 1000);
+});
+
+/***/ }),
+
+/***/ "./src/js/greeting.js":
+/*!****************************!*\
+  !*** ./src/js/greeting.js ***!
+  \****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var LS_USER = 'currentUser';
+var CN_TITLE_USER = '.momentum-title-user-name',
+    CN_GREETING_MODAL = '.greeting-modal',
+    CN_GREETING_FORM = '.greeting-form',
+    CN_GREETING_INPUT = '.greeting-input',
+    CN_GREETING_CANCLE = '.greeting-cancle-btn';
+var titleUserElem = document.querySelector(CN_TITLE_USER),
+    greetingModal = document.querySelector(CN_GREETING_MODAL),
+    greetingForm = greetingModal.querySelector(CN_GREETING_FORM),
+    greetingInput = greetingForm.querySelector(CN_GREETING_INPUT),
+    greetingCancleBtn = greetingModal.querySelector(CN_GREETING_CANCLE);
+
+var saveName = function saveName(name) {
+  return localStorage.setItem(LS_USER, name);
+};
+
+var showGreeting = function showGreeting() {
+  return greetingModal.hidden = false;
+};
+
+var blindGreeting = function blindGreeting() {
+  return greetingModal.hidden = true;
+};
+
+var handleGreetingSubmit = function handleGreetingSubmit(event) {
+  event.preventDefault();
+  var currentValue = greetingInput.value;
+
+  if (currentValue) {
+    saveName(currentValue);
+    blindGreeting();
+    loadUserName();
+  } else {
+    alert('다시 입력해주세요.');
+  }
+};
+
+var greetingUser = function greetingUser() {
+  var currentUser = localStorage.getItem(LS_USER);
+
+  if (currentUser) {
+    blindGreeting();
+  } else {
+    showGreeting();
+  }
+};
+
+var loadUserName = function loadUserName() {
+  var currentUser = localStorage.getItem(LS_USER);
+
+  if (currentUser === null) {
+    titleUserElem.textContent = '방문자';
+  } else {
+    titleUserElem.textContent = currentUser;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (function () {
+  greetingForm.addEventListener('submit', handleGreetingSubmit);
+  greetingCancleBtn.addEventListener('click', blindGreeting);
+  greetingUser();
+  loadUserName();
 });
 
 /***/ }),
