@@ -11,28 +11,32 @@
         <h1 class="momentum-title">안녕하세요! <span class="momentum-title-user-name">방문자</span>님</h1>
 
         <div class="momentum-today">
-            <h2 class="blind">날짜</h2>
-            <span class="clock-date">0000-00-00</span>
-            <em class="clock-day-of-week">토요일</em>
-        </div>
-
-        <div class="momentum-weather">
-            <h2 class="blind">날씨</h2>
-            <div class="weather-wrap">
-                <img src="https://via.placeholder.com/100" 
-                    alt="맑음" 
-                    sizes="" 
-                    srcset="" 
-                    width="100" 
-                    height="100" 
-                    class="weather-img">
-                <!-- or ::before -->
-                
-                <div class="weather-temper">
-                    <span class="current-temper"><span class="blind">현재</span>20&deg;</span>
-                    <span class="min-temper"><span class="blind">최저</span>10</span>
-                    /
-                    <span class="max-temper"><span class="blind">최고</span>30</span>
+            <div class="momentum-date">
+                <h2 class="blind">날짜</h2>
+                <strong class="clock-date">0000-00-00</strong>
+                <em class="clock-day-of-week">토요일</em>
+            </div>
+    
+            <div class="momentum-weather">
+                <h2 class="blind">날씨</h2>
+                <div class="weather-wrap">
+                    <img src="https://via.placeholder.com/100" 
+                        alt="맑음" 
+                        sizes="" 
+                        srcset="" 
+                        width="100" 
+                        height="100" 
+                        class="weather-img">
+                    <!-- or ::before -->
+                    
+                    <div class="temperature-wrap">
+                        <strong class="current-temper"><span class="blind">현재</span>20&deg;</strong>
+                        <span class="sub-temper">
+                            <span class="min-temper"><span class="blind">최저</span>10</span>
+                            /
+                            <span class="max-temper"><span class="blind">최고</span>30</span>
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -45,7 +49,7 @@
         <div class="momentum-todos">
             <form class="todo-form">
                 <input type="text" class="todo-input" placeholder="할 일을 입력하세요.">
-                <button type="submit">등록</button>
+                <button type="submit" class="todo-submit-btn">등록</button>
             </form>
             <ul class="todo-list">
                 <!-- 리스트 비었을때 -->
@@ -56,17 +60,21 @@
                     <span class="todo-item-text">마크업 하려던게 아닌데...</span>
                     <button type="button">X</button>
                 </li>
+                <li class="todo-item">
+                    <span class="todo-item-text">빨리 js 해야지~~</span>
+                    <button type="button">X</button>
+                </li>
             </ul>
         </div>
     </div>
 
     <div class="gretting-modal">
         <div class="gretting-modal-body">
-            <button type="button" class="gretting-cancle-btn">X</button>
             <form class="gretting-form">
                 <input type="text" name="" id="" placeholder="이름을 입력하세요." maxlength="50">
                 <button type="submit" class="gretting-submit-btn">확인</button>
             </form>
+            <button type="button" class="gretting-cancle-btn">X</button>
         </div>
     </div>
    
